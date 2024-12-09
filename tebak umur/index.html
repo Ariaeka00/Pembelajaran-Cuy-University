@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mengetahui Umur Kamu</title>
+    <style>
+        *, html, body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: lightpink;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid black;
+            border-radius: 5px;
+            gap: 10px;
+            width: 500px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        .input {
+            padding: 10px;
+            font-size: 17px;
+        }
+
+        #check-button {
+            background-color: #333;
+            color: #eaeaea;
+            padding: 10px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        #check-button:hover {
+            background-color: black;
+        }
+
+        #resault {
+            font-size: 20px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Cek berapa umur anda sekarang :</h2>
+        <p>Masukan tahun kelahiran anda :</p>
+        <input class="input" id="birthday" type="number" placeholder="contoh: 1999">
+        <button id="check-button" onclick="checkResault()">Cek Umur</button>
+        <p id="resault"></p>
+    </div>
+
+    <script>
+        const birthdayInput = document.getElementById('birthday')
+        const resault = document.getElementById('resault')
+
+        function checkResault() {
+            const birthday = birthdayInput.value
+            const now = new Date().getFullYear()
+            const age = now - birthday
+
+            resault.textContent = `Umur anda sekarang adalah : ${age} tahun.`
+        }
+    </script>
+</body>
+</html>
